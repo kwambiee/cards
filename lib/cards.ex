@@ -7,4 +7,8 @@ defmodule Cards do
       "#{value} of #{suit}"
     end
   end
+
+  def shuffle_deck(deck) do
+    Enum.shuffle(deck)
+  end
 end
