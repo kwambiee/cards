@@ -31,4 +31,11 @@ defmodule Cards do
       :error -> "That file doesn't exist"
     end
   end
+
+  def create_hand(hand_size) do
+    Cards.create_deck()
+    # |> is the pipe operator, it passes the result of the previous function to the next as the first argument
+    |> Cards.shuffle_deck()
+    |> Cards.deal(hand_size)
+  end
 end
