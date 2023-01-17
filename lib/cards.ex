@@ -21,4 +21,14 @@ defmodule Cards do
     binary = :erlang.term_to_binary(deck)
     File.write(filename, binary)
   end
+
+  def load_deck(filename) do
+    # pattern matching
+    {status, binary} = File.read(filename)
+    # error handling
+    case status do
+      :ok -> :erlang.binary_to_term(binary)
+      :error -> "That file doesn't exist"
+    end
+  end
 end
